@@ -2,6 +2,10 @@ FROM python:3-alpine
 
 MAINTAINER simojenki
 
-RUN pip3 install scdl
+RUN set -ex && \
+    apk --no-cache add su-exec git ffmpeg && \
+    pip3 install git+https://github.com/simojenki/scdl
 
-ENTRYPOINT ["scdl"]
+ADD src/scdl-wrapper /bin/scdl-wrapper
+
+ENTRYPOINT ["/bin/scdl-wrapper"]

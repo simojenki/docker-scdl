@@ -1,0 +1,14 @@
+#!/bin/ash
+
+PUID=${PUID:-1099}
+PGID=${PGID:-1099}
+
+addgroup -S scdl -g $PGID
+
+adduser -S scdl -u $PUID -G scdl
+
+mkdir -p /downloads
+
+cd /downloads
+
+exec su-exec scdl scdl $*
