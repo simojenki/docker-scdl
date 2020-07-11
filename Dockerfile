@@ -4,7 +4,7 @@ MAINTAINER simojenki
 
 RUN set -ex && \
     apk --no-cache add su-exec git ffmpeg && \
-    pip3 install git+https://github.com/simojenki/scdl
+    pip3 install git+https://github.com/flyingrub/scdl
 
 ADD src/scdl-wrapper /bin/scdl-wrapper
 
